@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="206fc4af-335c-448a-9db0-8293fc85b039" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Evidencia1/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Evidencia1/process/PriorityQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Evidencia1/process/Menu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Evidencia1/ui/CLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Evidencia1/ui/CLI.java" afterDir="false" />
-    </list>
+    <list default="true" id="206fc4af-335c-448a-9db0-8293fc85b039" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,22 +20,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2VVHtgeMmh4GLSQHVSz3fo6pBy1" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/eryxl/Documents/GitHub/ParaEvidencias/src"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/eryxl/Documents/GitHub/ParaEvidencias/src&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\eryxl\Documents\GitHub\ParaEvidencias\src" />
