@@ -2,6 +2,8 @@ package Evidencia2;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class grafodijkstra {
     public class Grafo {
@@ -17,10 +19,14 @@ public class grafodijkstra {
 
         public void addArista(String v1, String v2, double peso) {
             Vertice vertice1 = new Vertice(v1);
+            Vertice vertice2 = new Vertice(v2);
             if (!this.vertices.containsKey(vertice1)) {
                 this.addVertice(v1);
             }
-            this.vertices.get(vertice1).add(new Arista(new Vertice(v2), peso));
+            if (!this.vertices.containsKey(vertice2)){
+                this.addVertice(v2);
+            }
+            this.vertices.get(vertice1).add(new Arista(vertice1, vertice2, peso));
         }
 
         public ArrayList<Arista> getAdyacencias(Vertice vertice) {
@@ -63,6 +69,7 @@ public class grafodijkstra {
             public int hashCode() {
                 return Objects.hash(getNombre());
             }
+
         }
 
         public class Arista {
