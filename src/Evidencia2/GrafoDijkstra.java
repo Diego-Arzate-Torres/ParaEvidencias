@@ -70,6 +70,14 @@ public class GrafoDijkstra {
                 return Objects.hash(getNombre());
             }
 
+            public Vertice getVertice(String nombre) {
+                for (Vertice vertice : vertices.keySet()) {
+                    if (vertice.getNombre().equals(nombre)) {
+                        return vertice;
+                    }
+                }
+                return null;
+            }
         }
 
         public class Arista {
