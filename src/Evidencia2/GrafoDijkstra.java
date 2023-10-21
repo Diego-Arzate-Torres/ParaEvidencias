@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class grafodijkstra {
+public class GrafoDijkstra {
     public class Grafo {
         private final HashMap<Vertice, ArrayList<Arista>> vertices;
 
