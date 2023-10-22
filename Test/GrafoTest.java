@@ -10,53 +10,16 @@ public class GrafoTest {
 
     @Before
     public void init() {
-        final double PESO_NEUTRO = 0;
-        grafo = new Grafo();
-        // nombres de vertices
-        final String CINCO = "5";
-        final String CUATRO = "4";
-        final String TRES = "3";
-        final String OCHO = "8";
-        final String QUINCE = "15";
-        final String DIEZ = "10";
-        final String NUEVE = "9";
+        grafo.addVertice("1");
+        grafo.addVertice("2");
+        grafo.addVertice("3");
+        grafo.addVertice("4");
+        grafo.addVertice("5");
 
-        // agregar vertices
-        grafo.addVertice(CINCO);
-        grafo.addVertice(CUATRO);
-        grafo.addVertice(TRES);
-        grafo.addVertice(OCHO);
-        grafo.addVertice(QUINCE);
-        grafo.addVertice(DIEZ);
-        grafo.addVertice(NUEVE);
-
-        // agregar aristas
-        grafo.addArista(CINCO,OCHO,PESO_NEUTRO);
-        grafo.addArista(OCHO,CINCO,PESO_NEUTRO);
-
-        grafo.addArista(CINCO,CUATRO,PESO_NEUTRO);
-        grafo.addArista(CUATRO,CINCO,PESO_NEUTRO);
-
-        grafo.addArista(CUATRO,OCHO,PESO_NEUTRO);
-        grafo.addArista(OCHO,CUATRO,PESO_NEUTRO);
-
-        grafo.addArista(CUATRO,TRES,PESO_NEUTRO);
-        grafo.addArista(TRES,CUATRO,PESO_NEUTRO);
-
-        grafo.addArista(TRES,OCHO,PESO_NEUTRO);
-        grafo.addArista(OCHO,TRES,PESO_NEUTRO);
-
-        grafo.addArista(TRES,DIEZ,PESO_NEUTRO);
-        grafo.addArista(DIEZ,TRES,PESO_NEUTRO);
-
-        grafo.addArista(OCHO,QUINCE,PESO_NEUTRO);
-        grafo.addArista(QUINCE,OCHO,PESO_NEUTRO);
-
-        grafo.addArista(QUINCE,NUEVE,PESO_NEUTRO);
-        grafo.addArista(NUEVE,QUINCE,PESO_NEUTRO);
-
-        grafo.addArista(NUEVE,DIEZ,PESO_NEUTRO);
-        grafo.addArista(DIEZ,NUEVE,PESO_NEUTRO);
+        grafo.addArista("1", "2", 1);
+        grafo.addArista("2", "3", 1);
+        grafo.addArista("3", "4", 1);
+        grafo.addArista("4", "5", 1);
 
     }
 

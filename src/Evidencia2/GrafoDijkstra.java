@@ -2,35 +2,36 @@ package Evidencia2;
 
 import java.util.*;
 
-public class GrafoDijkstra {
-    private final HashMap<Vertice, ArrayList<Arista>> vertices = new HashMap<>();
-    private final HashMap<String, Vertice> nombreVertices = new HashMap<>();
+public class GrafoDijkstra extends Grafo{
+    /*private final HashMap<GrafoDijkstra.Vertice, ArrayList<GrafoDijkstra.Arista>> vertices = new HashMap<>();
+    private final HashMap<String, GrafoDijkstra.Vertice> nombreVertices = new HashMap<>();
 
     public void addVertice(String name) {
-        Vertice vertice = new Vertice(name);
+
+        GrafoDijkstra.Vertice vertice = new GrafoDijkstra.Vertice(name);
         vertices.put(vertice, new ArrayList<>());
         nombreVertices.put(name, vertice);
     }
 
     public void addArista(String v1, String v2, double weight) {
-        Vertice vertice1 = new Vertice(v1);
-        Vertice vertice2 = new Vertice(v2);
-        Arista arista = new Arista(vertice1, vertice2, weight);
+        GrafoDijkstra.Vertice vertice1 = new GrafoDijkstra.Vertice(v1);
+        GrafoDijkstra.Vertice vertice2 = new GrafoDijkstra.Vertice(v2);
+        GrafoDijkstra.Arista arista = new GrafoDijkstra.Arista(vertice1, vertice2, weight);
 
         if (!vertices.containsKey(vertice1)) {
             vertices.put(vertice1, new ArrayList<>());
         }
         vertices.get(vertice1).add(arista);
     }
-
-    public ArrayList<Arista> getAdyacencias(Vertice vertice){
+    public ArrayList<GrafoDijkstra.Arista> getAdyacencias(GrafoDijkstra.Vertice vertice){
         return vertices.get(vertice);
     }
 
     // Getter para un vértice
-    public Vertice getVertice(String name) {
+    public GrafoDijkstra.Vertice getVertice(String name) {
         return nombreVertices.get(name);
     }
+
 
     // Getter para los vecinos de un vértice
     public ArrayList<Vertice> getVecinos(Vertice vertice) {
@@ -46,6 +47,8 @@ public class GrafoDijkstra {
         return vertices.toString();
     }
 
+
+     */
     // Implementación del algoritmo de Dijkstra
     public HashMap<Vertice, Double> dijkstra(Vertice inicio) {
         HashMap<Vertice, Double> distancias = new HashMap<>();
@@ -72,7 +75,7 @@ public class GrafoDijkstra {
         return distancias;
     }
 
-    public class Vertice {
+ /*   public class Vertice {
         private final String name;
 
         public Vertice(String name) {
@@ -102,8 +105,8 @@ public class GrafoDijkstra {
         }
     }
 
-    public class Arista {
-        private final Vertice v1;
+     public class Arista {
+       private final Vertice v1;
         private final Vertice v2;
         private final double weight;
 
@@ -134,4 +137,6 @@ public class GrafoDijkstra {
                     '}';
         }
     }
+
+       */
 }
