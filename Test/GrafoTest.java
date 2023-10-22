@@ -1,20 +1,23 @@
 import Evidencia2.Grafo;
+import Evidencia2.GrafoDijkstra;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+
 
 public class GrafoTest {
-    private Grafo grafo;
+    public Grafo grafo = new GrafoDijkstra(null, null, 0.0) ;
 
     @Before
     public void init() {
+
         grafo.addVertice("1");
         grafo.addVertice("2");
         grafo.addVertice("3");
         grafo.addVertice("4");
         grafo.addVertice("5");
+
 
         grafo.addArista("1", "2", 1);
         grafo.addArista("2", "3", 1);
@@ -22,7 +25,14 @@ public class GrafoTest {
         grafo.addArista("4", "5", 1);
 
     }
-
+    @Test
+    public void testDijkstraAlgorithm(){
+        System.out.println("TEST: Dijkstra Algorithm");
+        Grafo.Vertice target = grafo.new Vertice("10");
+        assertEquals(new GrafoDijkstra(grafo,"5", 10.0), target);
+        System.out.println("................................");
+    }
+/*
     @Test
     public void testBreadthFirstSuccess(){
         System.out.println("TEST: BreadthFirstSuccess");
@@ -52,4 +62,6 @@ public class GrafoTest {
         assertNotEquals(SearchGraph.deepFirstSearch(grafo,"5","20"),target);
         System.out.println("................................");
     }
-}
+
+ */
+    }

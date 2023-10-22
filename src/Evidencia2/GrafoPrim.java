@@ -5,9 +5,8 @@ import java.util.HashMap;
 import java.util.Objects;
 import java.util.PriorityQueue;
 
-public class GrafoPrim {
-
-
+public class GrafoPrim extends Grafo{
+    /*
     public class Grafo {
         private final HashMap<Vertice, ArrayList<Arista>> vertices;
 
@@ -99,6 +98,8 @@ public class GrafoPrim {
             }
         }
 
+
+     */
         // Implementación del algoritmo de Prim
         public Grafo primMST() {
             Grafo mst = new Grafo();
@@ -118,9 +119,8 @@ public class GrafoPrim {
                 mst.addArista(minEdge.getV1().getName(), minEdge.getV2().getName(), minEdge.getWeight());
                 pq.addAll(this.getAdyacencias(newVertex));
             }
-
             return mst;
         }
-    }
+
 }
 

@@ -47,6 +47,10 @@ public class Grafo {
     }
 
     public class Vertice{
+        public String getName() {
+            return name;
+        }
+
         public Vertice(String name) {
             this.name = name;
         }

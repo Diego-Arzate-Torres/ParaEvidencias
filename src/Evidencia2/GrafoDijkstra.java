@@ -3,52 +3,56 @@ package Evidencia2;
 import java.util.*;
 
 public class GrafoDijkstra extends Grafo{
+    public GrafoDijkstra(Grafo grafo, String name, Double weight) {
+        super();
+    }
+
     /*private final HashMap<GrafoDijkstra.Vertice, ArrayList<GrafoDijkstra.Arista>> vertices = new HashMap<>();
-    private final HashMap<String, GrafoDijkstra.Vertice> nombreVertices = new HashMap<>();
+        private final HashMap<String, GrafoDijkstra.Vertice> nombreVertices = new HashMap<>();
 
-    public void addVertice(String name) {
+        public void addVertice(String name) {
 
-        GrafoDijkstra.Vertice vertice = new GrafoDijkstra.Vertice(name);
-        vertices.put(vertice, new ArrayList<>());
-        nombreVertices.put(name, vertice);
-    }
-
-    public void addArista(String v1, String v2, double weight) {
-        GrafoDijkstra.Vertice vertice1 = new GrafoDijkstra.Vertice(v1);
-        GrafoDijkstra.Vertice vertice2 = new GrafoDijkstra.Vertice(v2);
-        GrafoDijkstra.Arista arista = new GrafoDijkstra.Arista(vertice1, vertice2, weight);
-
-        if (!vertices.containsKey(vertice1)) {
-            vertices.put(vertice1, new ArrayList<>());
+            GrafoDijkstra.Vertice vertice = new GrafoDijkstra.Vertice(name);
+            vertices.put(vertice, new ArrayList<>());
+            nombreVertices.put(name, vertice);
         }
-        vertices.get(vertice1).add(arista);
-    }
-    public ArrayList<GrafoDijkstra.Arista> getAdyacencias(GrafoDijkstra.Vertice vertice){
-        return vertices.get(vertice);
-    }
 
-    // Getter para un vértice
-    public GrafoDijkstra.Vertice getVertice(String name) {
-        return nombreVertices.get(name);
-    }
+        public void addArista(String v1, String v2, double weight) {
+            GrafoDijkstra.Vertice vertice1 = new GrafoDijkstra.Vertice(v1);
+            GrafoDijkstra.Vertice vertice2 = new GrafoDijkstra.Vertice(v2);
+            GrafoDijkstra.Arista arista = new GrafoDijkstra.Arista(vertice1, vertice2, weight);
 
-
-    // Getter para los vecinos de un vértice
-    public ArrayList<Vertice> getVecinos(Vertice vertice) {
-        ArrayList<Vertice> vecinos = new ArrayList<>();
-        for (Arista arista : vertices.get(vertice)) {
-            vecinos.add(arista.getV2());
+            if (!vertices.containsKey(vertice1)) {
+                vertices.put(vertice1, new ArrayList<>());
+            }
+            vertices.get(vertice1).add(arista);
         }
-        return vecinos;
-    }
+        public ArrayList<GrafoDijkstra.Arista> getAdyacencias(GrafoDijkstra.Vertice vertice){
+            return vertices.get(vertice);
+        }
 
-    @Override
-    public String toString() {
-        return vertices.toString();
-    }
+        // Getter para un vértice
+        public GrafoDijkstra.Vertice getVertice(String name) {
+            return nombreVertices.get(name);
+        }
 
 
-     */
+        // Getter para los vecinos de un vértice
+        public ArrayList<Vertice> getVecinos(Vertice vertice) {
+            ArrayList<Vertice> vecinos = new ArrayList<>();
+            for (Arista arista : vertices.get(vertice)) {
+                vecinos.add(arista.getV2());
+            }
+            return vecinos;
+        }
+
+        @Override
+        public String toString() {
+            return vertices.toString();
+        }
+
+
+         */
     // Implementación del algoritmo de Dijkstra
     public HashMap<Vertice, Double> dijkstra(Vertice inicio) {
         HashMap<Vertice, Double> distancias = new HashMap<>();
