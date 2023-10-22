@@ -5,86 +5,40 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class testgrafoDijkstra {
-    private Grafo grafo;
+    public GrafoDijkstra grafo;
 
     @Before
-    public void init() {
-        final double PESO_NEUTRO = 0;
-        grafo = new Grafo();
-        // nombres de vertices
-        final String CINCO = "5";
-        final String CUATRO = "4";
-        final String TRES = "3";
-        final String OCHO = "8";
-        final String QUINCE = "15";
-        final String DIEZ = "10";
-        final String NUEVE = "9";
-        // agregar vertices
-        grafo.addVertice(CINCO);
-        grafo.addVertice(CUATRO);
-        grafo.addVertice(TRES);
-        grafo.addVertice(OCHO);
-        grafo.addVertice(QUINCE);
-        grafo.addVertice(DIEZ);
-        grafo.addVertice(NUEVE);
+    public void setUp() {
+        grafo = new GrafoDijkstra();
+        grafo.addVertice("1");
+        grafo.addVertice("2");
+        grafo.addVertice("3");
+        grafo.addVertice("4");
+        grafo.addVertice("5");
 
-        // agregar aristas
-        grafo.addArista(CINCO,OCHO,PESO_NEUTRO);
-        grafo.addArista(OCHO,CINCO,PESO_NEUTRO);
-
-        grafo.addArista(CINCO,CUATRO,PESO_NEUTRO);
-        grafo.addArista(CUATRO,CINCO,PESO_NEUTRO);
-
-        grafo.addArista(CUATRO,OCHO,PESO_NEUTRO);
-        grafo.addArista(OCHO,CUATRO,PESO_NEUTRO);
-
-        grafo.addArista(CUATRO,TRES,PESO_NEUTRO);
-        grafo.addArista(TRES,CUATRO,PESO_NEUTRO);
-
-        grafo.addArista(TRES,OCHO,PESO_NEUTRO);
-        grafo.addArista(OCHO,TRES,PESO_NEUTRO);
-
-        grafo.addArista(TRES,DIEZ,PESO_NEUTRO);
-        grafo.addArista(DIEZ,TRES,PESO_NEUTRO);
-
-        grafo.addArista(OCHO,QUINCE,PESO_NEUTRO);
-        grafo.addArista(QUINCE,OCHO,PESO_NEUTRO);
-
-        grafo.addArista(QUINCE,NUEVE,PESO_NEUTRO);
-        grafo.addArista(NUEVE,QUINCE,PESO_NEUTRO);
-
-        grafo.addArista(NUEVE,DIEZ,PESO_NEUTRO);
-        grafo.addArista(DIEZ,NUEVE,PESO_NEUTRO);
-
+        grafo.addArista("1", "2", 1);
+        grafo.addArista("2", "3", 1);
+        grafo.addArista("3", "4", 1);
+        grafo.addArista("4", "5", 1);
     }
 
     @Test
-    public void testBreadthFirstSuccess(){
-        System.out.println("TEST: BreadthFirstSuccess");
-        Grafo.Vertice target = grafo.new Vertice("10");
-        assertEquals(SearchGraph.breadthFirstSearch(grafo,"5","10"),target);
-        System.out.println("................................");
-    }
-    @Test
-    public void testBreadthFirstFail(){
-        System.out.println("TEST: BreadthFirstFail");
-        Grafo.Vertice target = grafo.new Vertice("10");
-        assertNotEquals(SearchGraph.breadthFirstSearch(grafo,"5","20"),target);
-        System.out.println("................................");
+    public void testBreadthFirstSearch() {
+        GrafoDijkstra.Vertice start = grafo.getVertice("1");
+        GrafoDijkstra.Vertice end = grafo.getVertice("5");
+
+        GrafoDijkstra.Vertice result = SearchGraph.breadthFirstSearch(grafo, start.getName(), end.getName());
+
+        assertEquals(end, result);
     }
 
     @Test
-    public void testDeepFirstSuccess(){
-        System.out.println("TEST: DeepFirstSuccess");
-        Grafo.Vertice target = grafo.new Vertice("10");
-        assertEquals(SearchGraph.deepFirstSearch(grafo,"5","10"),target);
-        System.out.println("................................");
-    }
-    @Test
-    public void testDeepFirstFail(){
-        System.out.println("TEST: DeepFirstFail");
-        Grafo.Vertice target = grafo.new Vertice("10");
-        assertNotEquals(SearchGraph.deepFirstSearch(grafo,"5","20"),target);
-        System.out.println("................................");
+    public void testDeepFirstSearch() {
+        GrafoDijkstra.Vertice start = grafo.getVertice("1");
+        GrafoDijkstra.Vertice end = grafo.getVertice("5");
+
+        GrafoDijkstra.Vertice result = SearchGraph.deepFirstSearch(grafo, start.getName(), end.getName());
+
+        assertEquals(end, result);
     }
 }

@@ -1,116 +1,137 @@
 package Evidencia2;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class GrafoDijkstra {
-    public class Grafo {
-        private final HashMap<Vertice, ArrayList<Arista>> vertices;
+    private final HashMap<Vertice, ArrayList<Arista>> vertices = new HashMap<>();
+    private final HashMap<String, Vertice> nombreVertices = new HashMap<>();
 
-        public Grafo() {
-            this.vertices = new HashMap<>();
+    public void addVertice(String name) {
+        Vertice vertice = new Vertice(name);
+        vertices.put(vertice, new ArrayList<>());
+        nombreVertices.put(name, vertice);
+    }
+
+    public void addArista(String v1, String v2, double weight) {
+        Vertice vertice1 = new Vertice(v1);
+        Vertice vertice2 = new Vertice(v2);
+        Arista arista = new Arista(vertice1, vertice2, weight);
+
+        if (!vertices.containsKey(vertice1)) {
+            vertices.put(vertice1, new ArrayList<>());
         }
+        vertices.get(vertice1).add(arista);
+    }
 
-        public void addVertice(String nombre) {
-            this.vertices.put(new Vertice(nombre), new ArrayList<>());
+    public ArrayList<Arista> getAdyacencias(Vertice vertice){
+        return vertices.get(vertice);
+    }
+
+    // Getter para un vértice
+    public Vertice getVertice(String name) {
+        return nombreVertices.get(name);
+    }
+
+    // Getter para los vecinos de un vértice
+    public ArrayList<Vertice> getVecinos(Vertice vertice) {
+        ArrayList<Vertice> vecinos = new ArrayList<>();
+        for (Arista arista : vertices.get(vertice)) {
+            vecinos.add(arista.getV2());
         }
+        return vecinos;
+    }
 
-        public void addArista(String v1, String v2, double peso) {
-            Vertice vertice1 = new Vertice(v1);
-            Vertice vertice2 = new Vertice(v2);
-            if (!this.vertices.containsKey(vertice1)) {
-                this.addVertice(v1);
+    @Override
+    public String toString() {
+        return vertices.toString();
+    }
+
+    // Implementación del algoritmo de Dijkstra
+    public HashMap<Vertice, Double> dijkstra(Vertice inicio) {
+        HashMap<Vertice, Double> distancias = new HashMap<>();
+        for (Vertice vertice : vertices.keySet()) {
+            distancias.put(vertice, Double.MAX_VALUE);
+        }
+        distancias.put(inicio, 0.0);
+
+        PriorityQueue<Vertice> cola = new PriorityQueue<>(Comparator.comparingDouble(distancias::get));
+        cola.add(inicio);
+
+        while (!cola.isEmpty()) {
+            Vertice actual = cola.poll();
+            for (Arista arista : vertices.get(actual)) {
+                Vertice vecino = arista.getV2();
+                double nuevaDistancia = distancias.get(actual) + arista.getWeight();
+                if (nuevaDistancia < distancias.get(vecino)) {
+                    cola.remove(vecino);
+                    distancias.put(vecino, nuevaDistancia);
+                    cola.add(vecino);
+                }
             }
-            if (!this.vertices.containsKey(vertice2)){
-                this.addVertice(v2);
-            }
-            this.vertices.get(vertice1).add(new Arista(vertice1, vertice2, peso));
+        }
+        return distancias;
+    }
+
+    public class Vertice {
+        private final String name;
+
+        public Vertice(String name) {
+            this.name = name;
         }
 
-        public ArrayList<Arista> getAdyacencias(Vertice vertice) {
-            return this.vertices.get(vertice);
+        public String getName() {
+            return name;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof Vertice)) return false;
+            Vertice vertice = (Vertice) o;
+            return Objects.equals(name, vertice.name);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(name);
         }
 
         @Override
         public String toString() {
-            StringBuilder sb = new StringBuilder();
-            for (Map.Entry<Vertice, ArrayList<Arista>> entry : vertices.entrySet()) {
-                sb.append("Vertice: ").append(entry.getKey().getNombre()).append("\n");
-                sb.append("Adyacencias: \n");
-                for (Arista arista : entry.getValue()) {
-                    sb.append("\t").append(arista.toString()).append("\n");
-                }
-            }
-            return sb.toString();
+            return name;
+        }
+    }
+
+    public class Arista {
+        private final Vertice v1;
+        private final Vertice v2;
+        private final double weight;
+
+        public Arista(Vertice v1, Vertice v2, double weight) {
+            this.v1 = v1;
+            this.v2 = v2;
+            this.weight = weight;
         }
 
-        public class Vertice {
-            private final String nombre;
-
-            public Vertice(String nombre) {
-                this.nombre = nombre;
-            }
-
-            public String getNombre() {
-                return nombre;
-            }
-
-            @Override
-            public boolean equals(Object o) {
-                if (this == o) return true;
-                if (!(o instanceof Vertice)) return false;
-                Vertice vertice = (Vertice) o;
-                return getNombre().equals(vertice.getNombre());
-            }
-
-            @Override
-            public int hashCode() {
-                return Objects.hash(getNombre());
-            }
-
-            public Vertice getVertice(String nombre) {
-                for (Vertice vertice : vertices.keySet()) {
-                    if (vertice.getNombre().equals(nombre)) {
-                        return vertice;
-                    }
-                }
-                return null;
-            }
+        public Vertice getV1() {
+            return v1;
         }
 
-        public class Arista {
-            private final Vertice v1;
-            private final Vertice v2;
-            private final double peso;
+        public Vertice getV2() {
+            return v2;
+        }
 
-            public Arista(Vertice v1, Vertice v2, double peso) {
-                this.v1 = v1;
-                this.v2 = v2;
-                this.peso = peso;
-            }
+        public double getWeight() {
+            return weight;
+        }
 
-            public Vertice getV1() {
-                return v1;
-            }
-
-            public Vertice getV2() {
-                return v2;
-            }
-
-            public double getPeso() {
-                return peso;
-            }
-
-            @Override
-            public String toString() {
-                return "Arista{" +
-                        "v1=" + v1.getNombre() +
-                        ", v2=" + v2.getNombre() +
-                        ", peso=" + peso +
-                        '}';
-            }
+        @Override
+        public String toString() {
+            return "Arista{" +
+                    "v1=" + v1 +
+                    ", v2=" + v2 +
+                    ", weight=" + weight +
+                    '}';
         }
     }
 }
