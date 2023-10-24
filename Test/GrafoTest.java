@@ -1,35 +1,42 @@
 import Evidencia2.Grafo;
 import Evidencia2.GrafoDijkstra;
+import Evidencia2.GrafoPrim;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-
+/**
+ * Es la clase encarga de llevar a cabo los test de los grafos Dijkstra y Prim
+ */
 public class GrafoTest {
-    public Grafo grafo = new GrafoDijkstra(null, null, 0.0) ;
+    private Grafo grafoDijkstra = new GrafoDijkstra(null, null, 0.0) ;
+    private Grafo grafoPrim = new GrafoPrim(null, null, 0.0);
 
+    /**
+     * Crea el grafo, añadiendo los vértices y las aristas, así como agregando peso a éstas
+     */
     @Before
     public void init() {
 
-        grafo.addVertice("1");
-        grafo.addVertice("2");
-        grafo.addVertice("3");
-        grafo.addVertice("4");
-        grafo.addVertice("5");
+        grafoDijkstra.addVertice("1");
+        grafoDijkstra.addVertice("2");
+        grafoDijkstra.addVertice("3");
+        grafoDijkstra.addVertice("4");
+        grafoDijkstra.addVertice("5");
 
 
-        grafo.addArista("1", "2", 1);
-        grafo.addArista("2", "3", 1);
-        grafo.addArista("3", "4", 1);
-        grafo.addArista("4", "5", 1);
+        grafoDijkstra.addArista("1", "2", 1);
+        grafoDijkstra.addArista("2", "3", 1);
+        grafoDijkstra.addArista("3", "4", 1);
+        grafoDijkstra.addArista("4", "5", 1);
 
     }
     @Test
     public void testDijkstraAlgorithm(){
         System.out.println("TEST: Dijkstra Algorithm");
-        Grafo.Vertice target = grafo.new Vertice("10");
-        assertEquals(new GrafoDijkstra(grafo,"5", 10.0), target);
+        Grafo.Vertice target = grafoDijkstra.new Vertice("10");
+        assertEquals(new GrafoDijkstra(grafoDijkstra,"5", 10.0), target);
         System.out.println("................................");
     }
 /*

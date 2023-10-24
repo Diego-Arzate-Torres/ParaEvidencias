@@ -1,10 +1,9 @@
 package Evidencia2;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Objects;
 import java.util.PriorityQueue;
 
+/**
+ * Clase encargada del Grafo Prim, la cual hereda las propiedades de la clase Grafo
+ */
 public class GrafoPrim extends Grafo{
     /*
     public class Grafo {
@@ -100,7 +99,20 @@ public class GrafoPrim extends Grafo{
 
 
      */
-        // Implementación del algoritmo de Prim
+
+    /**
+     * Constructor del grafo
+     * @param grafo
+     * @param name nombre de las aristas
+     * @param weight peso de las aristas
+     */
+    public GrafoPrim(Grafo grafo, String name, Double weight) {
+    }
+
+    /**
+     * Implementación del algoritmo de Prim
+     *
+     **/
         public Grafo primMST() {
             Grafo mst = new Grafo();
             PriorityQueue<Arista> pq = new PriorityQueue<>();

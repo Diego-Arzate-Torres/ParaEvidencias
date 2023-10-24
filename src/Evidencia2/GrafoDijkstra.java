@@ -2,7 +2,16 @@ package Evidencia2;
 
 import java.util.*;
 
+/**
+ * Clase encargada del Grafo Dijkstra, la cual hereda las propiedades de la clase Grafo
+ */
 public class GrafoDijkstra extends Grafo{
+    /**
+     * Constructor del grafo
+     * @param grafo
+     * @param name nombre de las aristas
+     * @param weight peso de las aristas
+     */
     public GrafoDijkstra(Grafo grafo, String name, Double weight) {
         super();
     }
@@ -53,7 +62,12 @@ public class GrafoDijkstra extends Grafo{
 
 
          */
-    // Implementación del algoritmo de Dijkstra
+
+    /**
+     * Implementación del algoritmo de Dijkstra
+     * @param inicio es el vértice en el que inicia el recorrido del grafo
+     * @return
+     */
     public HashMap<Vertice, Double> dijkstra(Vertice inicio) {
         HashMap<Vertice, Double> distancias = new HashMap<>();
         for (Vertice vertice : vertices.keySet()) {
