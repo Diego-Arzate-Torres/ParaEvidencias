@@ -2,10 +2,11 @@ package Evidencia3;
 
 import java.io.*;
 import java.util.Scanner;
-import java.util.stream.Stream;
 
-public class BrainImplementation {
-    private final String ENTRADA_VALIDA = "{1}?(si) | {1}?(no) | {1}?(salir)";
+public class BrainImplementation implements Serializable {
+    private final String ENTRADA_VALIDA = "(si|no|salir)";
+
+
     private BrainNode brainNode;
     private Stream stream;
     private Scanner scanner;
@@ -36,8 +37,8 @@ public class BrainImplementation {
 
         for( ; ; ){
             String actual = brainNode.getData(brainNode.actual);
-            int respuesta = -1;
-            int ultimo = -1;
+            int respuesta;
+            int ultimo = 0;
 
             while(!brainNode.tieneHoja()){
                 respuesta = preguntar(actual);
@@ -140,7 +141,7 @@ public class BrainImplementation {
         }else{
             System.out.println("¡Oh no! Algo salió mal. ¿Seguro pusiste una entrada correcta?");
         }
-        return -1;
+        return 0;
     }
     public String getAnimal(){
         String animal;
