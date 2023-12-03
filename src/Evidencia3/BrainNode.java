@@ -74,7 +74,7 @@ public class BrainNode implements Serializable {
      * @param respuesta la respuesta
      * @param n el índice para saber por qué lado se va
      */
-    public void crearNodo(String pregunta, String respuesta, int n){
+    public void insertarNodo(String pregunta, String respuesta, int n){
         Node node = new Node(pregunta);
         Node temp;
         temp = actual;
