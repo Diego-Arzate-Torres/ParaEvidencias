@@ -1,10 +1,8 @@
 package Evidencia3;
 
-public class Main {
+public class MainBrain {
     public static void main(String[] args) {
-
-        Menu.menu();
-
+        new BrainImplementation().jugar();
     }
 
 }
